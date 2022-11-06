@@ -22,7 +22,6 @@ def removeElement(e, l):
  l.remove(e)
  return True
  return False
-Page 18 of 19
 def revSort(l):
  for i in range(0, len(l), 1):
  for j in range(i + 1, len(l), 1):
