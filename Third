@@ -31,7 +31,6 @@ def fibonacciAndFactorial(n):
  Accepts:
  n {int} -- an integer
  Returns
-Page 8 of 19
  [term, factorial] {list}
  '''
  return [fibonacci(n), factorial(n)]
