@@ -1,0 +1,26 @@
+def triangle():
+    side1 = int(input("Enter the length of side 1: "))
+    side2 = int(input("Enter the length of side 2: "))
+    side3 = int(input("Enter the length of side 3: "))
+
+    a = int(input("Enter the side number : "))
+    b = int(input("Enter the side number : "))
+    if (a == 1 and b == 2):
+        c = side1+side2
+        print("side1+side2=", c, "is greater than side3=", side3)
+    elif (a == 1 and b == 3):
+        c = side1+side3
+        print("side1+side3=", c, "is greater than side2=", side2)
+    elif (a == 2 and b == 3):
+        c = side2+side3
+        print("side2+side3=", c, "is greater than side1=", side1)
+
+    P = side1+side2+side3
+    s = P/2
+    A = (s*(s-side1)*(s-side2)*(s-side3))**0.5
+
+    print("Area and perimeter of triangle is:- ")
+    return (A, P)
+
+
+print(triangle())
