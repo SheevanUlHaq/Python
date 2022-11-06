@@ -28,7 +28,6 @@ def numberOfWords():
  for i in s:
  if i == ' ':
  c += 1
-Page 14 of 19
  print('Number of Words:', c + 1)
 def isPalindrome():
  f = True
