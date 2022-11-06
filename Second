@@ -1,0 +1,29 @@
+def salesman_data():
+    s1 = int(input("Enter the sales of first week : "))
+    s2 = int(input("Enter the sales of second week : "))
+    s3 = int(input("Enter the sales of third week : "))
+    s4 = int(input("Enter the sales of fourth week : "))
+
+    sales = s1+s2+s3+s4
+    # print("Total sales of salesman is : ",sales)
+    if (sales >= 50000):
+        commission = 5/100*50000
+        sales += commission
+    else:
+        commission = 0
+
+    if (sales >= 80000):
+        remarks = "Excellent..."
+    elif (sales >= 60000 and sales < 80000):
+        remarks = "Good..."
+    elif (sales >= 40000 and sales < 60000):
+        remarks = "Average..."
+    elif (sales < 4000):
+        remarks = "WorkHard..."
+
+    print('''***********Details of salesman***********
+Total sales, commission and remarks is:-''')
+    print([sales, commission, remarks])
+
+
+salesman_data()
