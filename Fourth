@@ -1,20 +1,13 @@
-def setOfDigits(n):
- '''
- Takes a number and returns its digits
- as a set
- Accepts:
- n {int} -- a number
- Returns:
- digits {set} -- digits of the number
- '''
- assert n >= 10
- s = set()
- while n != 0:
- s.add(n % 10)
- n //= 10
- return s
-def main():
- n = int(input('Enter a Number: '))
- print('Set of Digits:', setOfDigits(n))
-if __name__ == '__main__':
- main()
+def set_number():
+    n = int(input("Enter your nummber : "))
+    m = n
+    s = set({})
+    while n > 0:
+        i = n % 10
+        s.add(i)
+        n = n//10
+    return s
+
+
+s = set_number()
+print(s)
