@@ -1,79 +1,115 @@
-def isNumericList(l):
- for i in range(0, len(l), 1):
- if not l[i].isnumeric():
- return False
- return True
-def isStringList(l):
- for i in range(0, len(l), 1):
- if not type(l[i]) == str:
- return False
- return True
-def revDisplay(l):
- for i in range(len(l) - 1, -1, -1):
- print(l[i], end=' ')
- print()
-def linearSearch(e, l):
- for i in range(0, len(l), 1):
- if l[i] == e:
- return True
- return False
-def removeElement(e, l):
- if (linearSearch(e, l)):
- l.remove(e)
- return True
- return False
-def revSort(l):
- for i in range(0, len(l), 1):
- for j in range(i + 1, len(l), 1):
- if l[i] < l[j]:
- l[i], l[j] = l[j], l[i]
- return l
-def displayCommon(l1, l2):
- for i in l1:
- if i in l2:
- print(i, end=' ')
- print()
-def main():
- l = []
- l2 = []
- r = 0
- e = 0
- c = 0
- r = int(input('Enter a Range: '))
- for i in range(0, r, 1):
- e = input('Enter Element: ')
- l.append(e)
- print('List:', end=' ')
- print(l)
- if (isNumericList(l)):
- print('Numeric List')
- for i in l:
- if not int(i) % 2 == 0:
- c += 1
- print('No. of Odd Values in List:', c)
- elif (isStringList(l)):
- print('String List')
- print('Largest String in List:', max(l))
- print('Displaying List in Reverse:', end=' ')
- revDisplay(l)
- e = input('Enter Search Element: ')
- if (linearSearch(e, l)):
- print('Element Found in List')
- else:
- print('Element Not Found in List')
- e = input('Enter Element to Remove: ')
- r = removeElement(e, l)
- if (r):
- print('List after Removing Element:', l)
- else:
- print('Element Not Found in List')
- print('Descending Sorted List:', revSort(l))
- print('Enter Data for List 2:')
- r = int(input('Enter a Range: '))
- for i in range(0, r, 1):
- e = input('Enter Element: ')
- l2.append(e)
- print('Common Elements:', end=' ')
- displayCommon(l, l2)
-if __name__ == '__main__':
- main()
+def isNumber(l):
+    flag = True
+    for i in l:
+        if (type(i) != int):
+            flag = False
+    if (flag == True):
+        print("List contains all numbers.")
+    else:
+        print("List does not conains all numbers.")
+
+
+def oddValues(l):
+    for i in l:
+        c = 0
+        if (i % 2 != 0):
+            c += 1
+    print("No. of odd values are : ", c)
+
+
+def largestString(l):
+    max = l[0]
+    for i in l:
+        n = len(i)
+        if (n > len(max)):
+            max = i
+    print("Largest string is ->  ", max)
+
+
+def reverse(l):
+    l1 = []
+    n = len(l)
+    i = -1
+    while (i > -n-1):
+        l1.append(l[i])
+        i -= 1
+    print(l1)
+
+
+def findElement(l, el):
+    for i in l:
+        if (i == el):
+            print(el, "is present in the lsit.")
+            break
+    else:
+        print(el, "is not present.")
+
+
+def removeElement(l, el):
+    l.remove(el)
+    print(l)
+
+
+def sorting(l):
+    # l = l.sort()
+    # a = []
+    # for i in range(len(l)-1, -1, -1):
+    #     a.append(l[i])
+    # print(a)
+    pass
+
+
+def common(l1, l2):
+    l3 = []
+    for i in l1:
+        for j in l2:
+            if (i == j):
+                l3.append(j)
+    print("Common elemnts are : ", l3)
+
+
+# Main funcion
+print("\n(a) To check all the elements are number or not.")
+l1 = [1, 2, "3", 4]
+print("List is : ", l1)
+isNumber(l1)
+
+print("\n(b) If it is a numeric list,then count number of odd values in it.")
+l1 = [5, 9, 7, 2, 8, 3]
+print("List is : ", l1)
+oddValues(l1)
+
+print("\n(c) If list contains all Strings,then display largest String in the list.")
+l1 = ["Hello", "Myself Sheevan Ul Haq", "from DU"]
+print("List is : ", l1)
+largestString(l1)
+
+print("\n(d) Display list in reverse form")
+l1 = ["How", "are", "you", "?"]
+reverse(l1)
+
+print("\n(e) Find a specified element in list.")
+l1 = [1, 2, 3, 4, 5]
+print("List is : ", l1)
+key = 3
+print("Element t be searched is : ", key)
+findElement(l1, key)
+
+print("\n(f) Remove the specified element from the list.")
+l1 = ["a", "b", "c", "d"]
+print("List is: ", l1)
+key = "c"
+print("Element to be removed is : ", key)
+removeElement(l1, key)
+
+print("\n(g) Sort the list in descending order")
+l1 = [2, 5, 7, 1, 9, 3]
+print("List is : ", l1)
+sorting(l1)
+
+print("\n(h) accept2 lists and find the common members in them")
+l1 = [1, 2, "common", 3, 4]
+l2 = [3, 9, "common", 1, 8]
+print("List 1 is: ", l1)
+print("List 2 is: ", l2)
+common(l1, l2)
