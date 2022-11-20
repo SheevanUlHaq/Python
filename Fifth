@@ -5,5 +5,27 @@ def factorial(n):
     return n*factorial(n-1)
 
 
-def sum_of_series(n):
-    pass
+def sum_of_series(x, n):
+    if (n % 2 != 0):
+        print("You enterd an odd number.")
+        exit(0)
+    odd = 0.0
+    even = 0.0
+    for i in range((n+2)/2):
+        if (i % 2 != 0):
+            a = i*2
+            fact = factorial(a)
+            odd += (x**a)/fact
+        else:
+            a = i*2
+            fact = factorial(a)
+            even += (x**a)/fact
+
+    sum = even-odd
+    print(sum)
+
+
+x = int(input("Enter the value of x: "))
+n = int(input("Enter the value of n (even number): "))
+sum_of_series(x, n)
+# print(value)
