@@ -1,13 +1,19 @@
-def percentage(dict):
+def maxPercentage(dict):
+    l = []
     for item in dict:
         ds = dict[item]["DS"]
         cn = dict[item]["CN"]
         python = dict[item]["Python"]
         os = dict[item]["OS"]
-
-
-def maxPercentage(dict):
-    pass
+        total = ds+cn+python+os
+        perc = (total/400)*100
+        l.append(perc)
+    max = l[0]
+    print("Percentages are", l, "respectively: ")
+    for i in l:
+        if (i > max):
+            max = i
+    print("Maximum percentage is : ", max)
 
 
 myDict = {
@@ -37,3 +43,6 @@ myDict = {
     }
 
 }
+print("Data of the students:- ")
+print(myDict)
+maxPercentage(myDict)
